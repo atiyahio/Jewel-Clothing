@@ -1,88 +1,109 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import Head from 'next/head';
+import React from 'react';
+import styled from 'styled-components';
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+const Home = () => {
+  const StyledHomepage = styled.div`
+    .homepage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 80px;
+    }
 
-    <Nav />
+    .directory-menu {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+    .menu-item {
+      min-width: 30%;
+      height: 240px;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+      margin: 0 7.5px 15px;
 
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
-    </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
+      &:first-child {
+        margin-right: 7.5px;
       }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
+
+      &:last-child {
+        margin-left: 7.5px;
       }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
+
+      .content {
+        height: 90px;
+        padding: 0 25px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
 
-export default Home
+        .title {
+          font-weight: bold;
+          margin-bottom: 6px;
+          font-size: 22px;
+          color: #4a4a4a;
+        }
+
+        .subtitle {
+          font-weight: lighter;
+          font-size: 16px;
+        }
+      }
+    }
+  `;
+  return (
+    <>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <StyledHomepage>
+        <div className="container">
+          <div className="directory-menu">
+            <div className="menu-item">
+              <div className="content">
+                <h1 className="title">HATS</h1>
+                <span className="subtitle">SHOW NOW</span>
+              </div>
+            </div>
+            <div className="menu-item">
+              <div className="content">
+                <h1 className="title">JACKETS</h1>
+                <span className="subtitle">SHOW NOW</span>
+              </div>
+            </div>
+            <div className="menu-item">
+              <div className="content">
+                <h1 className="title">SNEAKERS</h1>
+                <span className="subtitle">SHOW NOW</span>
+              </div>
+            </div>
+            <div className="menu-item">
+              <div className="content">
+                <h1 className="title">WOMENS</h1>
+                <span className="subtitle">SHOW NOW</span>
+              </div>
+            </div>
+            <div className="menu-item">
+              <div className="content">
+                <h1 className="title">MENS</h1>
+                <span className="subtitle">SHOW NOW</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </StyledHomepage>
+    </>
+  );
+};
+
+export default Home;
