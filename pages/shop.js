@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SHOP_DATA from './shop.data';
+import SHOP_DATA from '../shop.data';
 import CollectionPreview from '../components/CollectionPreview';
 
 const Shop = () => {
