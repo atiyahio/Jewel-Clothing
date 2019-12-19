@@ -3,7 +3,7 @@
 }
 
 #nprogress .bar {
-  height: 3px;
+  height: 6px;
   background: #27c4f5
     linear-gradient(to right, #27c4f5, #a307ba, #fd8d32, #70c050, #27c4f5);
   background-size: 500%;

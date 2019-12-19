@@ -7,7 +7,6 @@ const Shop = () => {
 
   return (
     <div className="shop-page container">
-      <h1>SHOP</h1>
       {collections.map(({ id, ...otherCollectionProps }) => (
         <CollectionPreview key={id} {...otherCollectionProps} />
       ))}
