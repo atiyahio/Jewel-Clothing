@@ -3,7 +3,7 @@ const theme = {
     pri: 'Open Sans Condensed, sans-serif'
   },
   responsive: {
-    mw: '1250px'
+    mw: '1150px'
   },
   colors: {
     ter: '#00FFFC',
