@@ -10,7 +10,7 @@ const ButtonInput = ({ children, isGoogleSignIn, ...otherProps }) => {
     line-height: 50px;
     padding: 0 35px 0 35px;
     font-size: 15px;
-    background-color: black;
+    background-color: ${props => props.color};
     color: white;
     text-transform: uppercase;
     font-family: 'Open Sans Condensed';
@@ -25,7 +25,7 @@ const ButtonInput = ({ children, isGoogleSignIn, ...otherProps }) => {
     }
 
     &.google-sign-in {
-      background-color: #4285f4;
+      background-color: #f45b42;
       color: white;
       &:hover {
         background-color: #357ae8;

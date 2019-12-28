@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormInput from './FormInput';
 import ButtonInput from './ButtonInput';
 import styled from 'styled-components';
-import { signInWithGoogle } from '../firebase/firebase.utils';
+import { signInWithGoogle, signInWithFb } from '../firebase/firebase.utils';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ const SignIn = () => {
     span {
       font-size: 1.8rem;
     }
-    width: 380px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     .title {
@@ -29,7 +29,14 @@ const SignIn = () => {
     }
     .buttons {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      .socials {
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        margin-bottom: 1rem;
+      }
     }
   `;
 
@@ -55,10 +62,17 @@ const SignIn = () => {
           required
         />
         <div className="buttons">
-          <ButtonInput type="submit">Sign in</ButtonInput>
-          <ButtonInput isGoogleSignIn onClick={signInWithGoogle}>
-            Sign in with Google
+          <ButtonInput color="black" type="submit">
+            Sign in
           </ButtonInput>
+          <div className="socials">
+            <ButtonInput color="#f45b42" onClick={signInWithGoogle}>
+              Login with Google
+            </ButtonInput>
+            <ButtonInput color="#4444ff" onClick={signInWithFb}>
+              Login with Facebook
+            </ButtonInput>
+          </div>
         </div>
       </form>
     </StyledSignIn>

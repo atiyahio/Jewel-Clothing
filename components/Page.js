@@ -3,7 +3,8 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 import Header from './Header';
-import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
+// import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
+import { auth } from '../firebase/firebase.utils';
 
 class Page extends Component {
   constructor() {
@@ -13,30 +14,36 @@ class Page extends Component {
     };
   }
 
-  unsubscribeFromAuth = null;
-
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(snapShot => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
-          });
-        });
-      }
-
-      this.setState({ currentUser: userAuth });
+    auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
     });
   }
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
+  // unsubscribeFromAuth = null;
+
+  // componentDidMount() {
+  //   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  //     if (userAuth) {
+  //       const userRef = await createUserProfileDocument(userAuth);
+
+  //       userRef.onSnapshot(snapShot => {
+  //         this.setState({
+  //           currentUser: {
+  //             id: snapShot.id,
+  //             ...snapShot.data()
+  //           }
+  //         });
+  //       });
+  //     }
+
+  //     this.setState({ currentUser: userAuth });
+  //   });
+  // }
+
+  // componentWillUnmount() {
+  //   this.unsubscribeFromAuth();
+  // }
   render() {
     return (
       <>
