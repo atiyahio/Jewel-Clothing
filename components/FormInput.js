@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FormInput = ({ handleChange, label, ...otherProps }) => {
+const FormInput = ({ label, ...otherProps }) => {
   const StyledInputGroup = styled.div`
     position: relative;
     margin: 45px 0;
@@ -53,15 +53,9 @@ const FormInput = ({ handleChange, label, ...otherProps }) => {
   `;
   return (
     <StyledInputGroup>
-      <input className="form-input" onChange={handleChange} {...otherProps} />
+      <input className="form-input" {...otherProps} />
       {label ? (
-        <label
-          className={`${
-            otherProps.value.legth ? 'shrink' : ''
-          } form-input-label`}
-        >
-          {label}
-        </label>
+        <label className={`shrink form-input-label`}>{label}</label>
       ) : null}
     </StyledInputGroup>
   );

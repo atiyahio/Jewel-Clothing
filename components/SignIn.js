@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormInput from './FormInput';
 import ButtonInput from './ButtonInput';
 import styled from 'styled-components';
-import { signInWithGoogle, signInWithFb } from '../firebase/firebase.utils';
+import {
+  signInWithGoogle,
+  signInWithFb,
+  signInWithTw
+} from '../firebase/firebase.utils';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -21,7 +22,7 @@ const SignIn = () => {
     span {
       font-size: 1.8rem;
     }
-    width: 400px;
+    width: 38%;
     display: flex;
     flex-direction: column;
     .title {
@@ -33,6 +34,10 @@ const SignIn = () => {
       .socials {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        button {
+          width: 48%;
+        }
       }
       button {
         margin-bottom: 1rem;
@@ -45,22 +50,8 @@ const SignIn = () => {
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          name="email"
-          value={email}
-          handleChange={e => setEmail(e.target.value)}
-          type="email"
-          label="Email"
-          required
-        />
-        <FormInput
-          name="email"
-          value={password}
-          handleChange={e => setPassword(e.target.value)}
-          type="password"
-          label="Password"
-          required
-        />
+        <FormInput name="email" type="email" label="Email" required />
+        <FormInput name="email" type="password" label="Password" required />
         <div className="buttons">
           <ButtonInput color="black" type="submit">
             Sign in
@@ -69,8 +60,11 @@ const SignIn = () => {
             <ButtonInput color="#f45b42" onClick={signInWithGoogle}>
               Login with Google
             </ButtonInput>
-            <ButtonInput color="#4444ff" onClick={signInWithFb}>
+            <ButtonInput color="#1d1dfd" onClick={signInWithFb}>
               Login with Facebook
+            </ButtonInput>
+            <ButtonInput color="#389aff" onClick={signInWithTw}>
+              Login with Twitter
             </ButtonInput>
           </div>
         </div>
