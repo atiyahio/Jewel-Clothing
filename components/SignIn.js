@@ -3,16 +3,26 @@ import FormInput from './FormInput';
 import ButtonInput from './ButtonInput';
 import styled from 'styled-components';
 import {
+  auth,
   signInWithGoogle,
   signInWithFb,
   signInWithTw
 } from '../firebase/firebase.utils';
 
 const SignIn = () => {
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    console.log('hey');
+    let { email, password } = e.target;
+
+    email = email.value;
+    password = password.value;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const StyledSignIn = styled.div`
@@ -51,7 +61,7 @@ const SignIn = () => {
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput name="email" type="email" label="Email" required />
-        <FormInput name="email" type="password" label="Password" required />
+        <FormInput name="password" type="password" label="Password" required />
         <div className="buttons">
           <ButtonInput color="black" type="submit">
             Sign in
