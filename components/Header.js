@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
 import { auth } from '../firebase/firebase.utils';
 
 const Header = ({ currentUser }) => {
+  console.log(currentUser);
   const StyledHeader = styled.div`
     height: 70px;
     width: 100%;
@@ -62,4 +65,6 @@ const Header = ({ currentUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = ({ user }) => ({ currentUser: user.currentUser });
+
+export default connect(mapStateToProps)(Header);

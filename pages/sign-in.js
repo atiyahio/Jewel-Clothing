@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
@@ -11,12 +12,17 @@ const SignInSignUp = () => {
     justify-content: space-between;
   `;
   return (
-    <div className="container">
+    <motion.div
+      initial={{ y: 50 }}
+      animate={{ y: 0 }}
+      exit={{ y: 50 }}
+      className="container"
+    >
       <StyledSignInSignUp>
         <SignIn />
         <SignUp />
       </StyledSignInSignUp>
-    </div>
+    </motion.div>
   );
 };
 

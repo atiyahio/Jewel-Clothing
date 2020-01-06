@@ -39,8 +39,16 @@ const DirectoryMenu = () => {
     }
   ]);
 
+  const stagger = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <StyledDirectoryMenu>
+    <StyledDirectoryMenu variants={stagger}>
       {sections.map(({ title, imageUrl, id, size }) => (
         <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
       ))}

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const StyledHomepage = styled.div`
+export const StyledHomepage = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 80px;
 `;
 
-export const StyledMenuItem = styled.div`
+export const StyledMenuItem = styled(motion.div)`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -70,7 +71,7 @@ export const StyledMenuItem = styled.div`
   }
 `;
 
-export const StyledDirectoryMenu = styled.div`
+export const StyledDirectoryMenu = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-wrap: wrap;

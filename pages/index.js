@@ -9,7 +9,7 @@ const Home = () => (
       <title>Home</title>
     </Head>
 
-    <StyledHomepage>
+    <StyledHomepage initial="initial" animate="animate" exit={{ y: 50 }}>
       <div className="container">
         <DirectoryMenu />
       </div>
